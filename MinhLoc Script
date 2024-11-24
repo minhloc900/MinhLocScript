@@ -1,4 +1,4 @@
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/Ban Đầu.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 local Window = Fluent:CreateWindow({
@@ -11,7 +11,7 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    Ban Đầu = Window:AddTab({ Title = "Ban Đầu", Icon = "" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "" }),
     Player = Window:AddTab({ Title = "Player", Icon = "" }),
     Teleport = Window:AddTab({ Title = "Island", Icon = "" }),
@@ -2466,10 +2466,10 @@ if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Respawn
 	game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
 end
 
-local Farming = Tabs.Main:AddSection("Farming")
+local Farming = Tabs.Ban Đầu:AddSection("Farming")
 local listfastattack = {'Normal Attack','Fast Attack','Super Fast Attack'}
 
-    local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
+    local DropdownDelayAttack = Tabs.Ban Đầu:AddDropdown("DropdownDelayAttack", {
         Title = "Chọn Tốc Độ Đánh",
         Description = "",
         Values = listfastattack,
@@ -2488,7 +2488,7 @@ local listfastattack = {'Normal Attack','Fast Attack','Super Fast Attack'}
 	end
 end)
 
-    local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
+    local DropdownSelectWeapon = Tabs.Ban Đầu:AddDropdown("DropdownSelectWeapon", {
         Title = "Chọn Vũ Khí",
         Description = "",
         Values = {'Melee','Sword','Blox Fruit'},
@@ -2540,7 +2540,7 @@ end)
     end)
 
 
-    local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {
+    local ToggleLevel = Tabs.Ban Đầu:AddToggle("ToggleLevel", {
         Title = "Cày Cấp Độ",
         Description = "",
         Default = false })
@@ -2558,13 +2558,13 @@ end)
         if _G.AutoLevel then
         pcall(function()
           CheckLevel()
-          if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+          if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == false then
           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
           toTarget(CFrameQ)
           if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
           end
-          elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+          elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == true then
           for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
           if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
           if v.Name == Ms then
@@ -2582,7 +2582,7 @@ end)
           FarmPos = v.HumanoidRootPart.CFrame
           MonFarm = v.Name
           --Click
-          until not _G.AutoLevel or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+          until not _G.AutoLevel or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == false
           bringmob = false
         end   
           end
@@ -2603,7 +2603,7 @@ end)
 
 
 
-        local ToggleCandy = Tabs.Main:AddToggle("ToggleCandy", {Title = "Auto Farm Candy ( Only Max Level )",Description = "Cày Kẹo ( Chỉ Cấp Độ Tối Đa )", Default = false })
+        local ToggleCandy = Tabs.Ban Đầu:AddToggle("ToggleCandy", {Title = "Auto Farm Candy ( Only Max Level )",Description = "Cày Kẹo ( Chỉ Cấp Độ Tối Đa )", Default = false })
         ToggleCandy:OnChanged(function(Value)
            _G.AutoCandy = Value
            if Value == false then
@@ -2649,7 +2649,7 @@ end)
 				  end
 			  end)
 
-    local ToggleMobAura = Tabs.Main:AddToggle("ToggleMobAura", {
+    local ToggleMobAura = Tabs.Ban Đầu:AddToggle("ToggleMobAura", {
         Title = "Đánh Quái Ở Gần",
         Description = "",
         Default = false })
@@ -2696,7 +2696,7 @@ end)
       end)
 
 
-    local ToggleCastleRaid = Tabs.Main:AddToggle("ToggleCastleRaid", {
+    local ToggleCastleRaid = Tabs.Ban Đầu:AddToggle("ToggleCastleRaid", {
         Title = "Đánh Hải Tặc ở Pháo Đài",
         Description = "", 
         Default = false })
@@ -2809,7 +2809,7 @@ function TPchest(P1)
 
 
 if Third_Sea then
-local ToggleChest = Tabs.Main:AddToggle("ToggleChest", {
+local ToggleChest = Tabs.Ban Đầu:AddToggle("ToggleChest", {
     Title = "Nhặt Rương dừng Khi Có Vật Phẩm [Dịch Chuyển]",
     Description = "", 
     Default = false })
@@ -2820,7 +2820,7 @@ Options.ToggleChest:SetValue(false)
 end
 
 if Second_Sea then
-local ToggleChest = Tabs.Main:AddToggle("ToggleChest", {
+local ToggleChest = Tabs.Ban Đầu:AddToggle("ToggleChest", {
     Title = "Nhặt Rương dừng Khi Có Vật Phẩm [Dịch Chuyển]",
     Description = "", 
     Default = false })
@@ -2830,7 +2830,7 @@ end)
 Options.ToggleChest:SetValue(false)
 end
 
-local ToggleChestTween = Tabs.Main:AddToggle("ToggleChestTween", {
+local ToggleChestTween = Tabs.Ban Đầu:AddToggle("ToggleChestTween", {
     Title = "Nhặt Rương [Bay]",
     Description = "", 
     Default = false })
@@ -2862,7 +2862,7 @@ spawn(function()
 	end
 end)
 
-      Tabs.Main:AddButton({
+      Tabs.Ban Đầu:AddButton({
         Title = "Nhập Hết Code",
         Description = "",
         Callback = function()
@@ -2874,7 +2874,7 @@ end)
 		game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(Code)
 	end
 
-    Tabs.Main:AddButton({
+    Tabs.Ban Đầu:AddButton({
         Title = "Fix Lag",
         Description = "",
         Callback = function()
@@ -2924,8 +2924,8 @@ end)
         end
     end
 
-local Mastery = Tabs.Main:AddSection("Mastery Farm")
-    local DropdownMastery = Tabs.Main:AddDropdown("DropdownMastery", {
+local Mastery = Tabs.Ban Đầu:AddSection("Mastery Farm")
+    local DropdownMastery = Tabs.Ban Đầu:AddDropdown("DropdownMastery", {
         Title = "Chọn Chế Độ Cày Thông Thạo",
         Description = "",
         Values = {"Level","Near Mobs",},
@@ -2939,7 +2939,7 @@ local Mastery = Tabs.Main:AddSection("Mastery Farm")
         TypeMastery = Value
     end)
 
-    local ToggleMasteryFruit = Tabs.Main:AddToggle("ToggleMasteryFruit", {
+    local ToggleMasteryFruit = Tabs.Ban Đầu:AddToggle("ToggleMasteryFruit", {
         Title = "Cày Thông Thạo Trái Ác Quỷ",
         Description = "", 
         Default = false })
@@ -2950,7 +2950,7 @@ local Mastery = Tabs.Main:AddSection("Mastery Farm")
 
  
 
-    local SliderHealt = Tabs.Main:AddSlider("SliderHealt", {
+    local SliderHealt = Tabs.Ban Đầu:AddSlider("SliderHealt", {
         Title = "Phần Trăm Máu Quái",
         Description = "",
         Default = 25,
@@ -3022,7 +3022,7 @@ spawn(function()
     if AutoFarmMasDevilFruit and TypeMastery == 'Level' then
     pcall(function()
       CheckLevel(SelectMonster)
-      if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+      if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == false then
       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
       if BypassTP then
         if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQ.Position).Magnitude > 2500 then
@@ -3037,7 +3037,7 @@ spawn(function()
       if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
       end
-      elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+      elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == true then
       for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
       if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
       if v.Name == Ms then
@@ -3060,7 +3060,7 @@ spawn(function()
       
       NormalAttack()
       end
-      until not AutoFarmMasDevilFruit or not v.Parent or v.Humanoid.Health == 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'Level'
+      until not AutoFarmMasDevilFruit or not v.Parent or v.Humanoid.Health == 0 or game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'Level'
       bringmob = false
       _G.UseSkill = false
       
@@ -3106,10 +3106,10 @@ end
 end
 end)
 
-local MiscFarm = Tabs.Main:AddSection("Farm Khác")
+local MiscFarm = Tabs.Ban Đầu:AddSection("Farm Khác")
 
 if Third_Sea then
-local ToggleBone = Tabs.Main:AddToggle("ToggleBone", {
+local ToggleBone = Tabs.Ban Đầu:AddToggle("ToggleBone", {
     Title = "Cày Xương",
     Description = "", 
     Default = false })
@@ -3128,11 +3128,11 @@ spawn(function()
     while wait() do
         if _G.AutoBone then
             pcall(function()
-                local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
+                local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Container.QuestTitle.Title.Text
                 if not string.find(QuestTitle, "Demonic Soul") then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                 end
-                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                if game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == false then
                     if BypassTP then
                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BoneCFrame2.Position).Magnitude > 2500 then
                        to(BoneCFrame2)
@@ -3145,12 +3145,12 @@ spawn(function()
                 if (BoneCFrame.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then    
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest","HauntedQuest2",1)
                     end
-                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                elseif game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == true then
                     if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                                 if v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy" then
-                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Demonic Soul") then
+                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Container.QuestTitle.Title.Text, "Demonic Soul") then
                                         repeat wait(_G.Fast_Delay)
                                             AttackNoCoolDown()
                                             AutoHaki()
@@ -3164,7 +3164,7 @@ spawn(function()
                                             v.HumanoidRootPart.CanCollide = false
                                             FarmPos = v.HumanoidRootPart.CFrame
                                             MonFarm = v.Name
-                                        until not _G.AutoBone or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                        until not _G.AutoBone or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == false
                                     else
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                         bringmob = false
@@ -3180,7 +3180,7 @@ spawn(function()
     end
 end)
 
-local ToggleCake = Tabs.Main:AddToggle("ToggleCake", {
+local ToggleCake = Tabs.Ban Đầu:AddToggle("ToggleCake", {
     Title = "Cày Katakuri",
     Description = "", 
     Default = false })
@@ -3245,7 +3245,7 @@ spawn(function()
     end)
 
 
-    local ToggleSpawnCake = Tabs.Main:AddToggle("ToggleSpawnCake", {
+    local ToggleSpawnCake = Tabs.Ban Đầu:AddToggle("ToggleSpawnCake", {
         Title = "Tự Động Triệu Hồi Katakuri",
         Description = "", 
         Default = true })
@@ -3272,7 +3272,7 @@ spawn(function()
 end)
 
     if Second_Sea then
-    local ToggleVatChatKiDi = Tabs.Main:AddToggle("ToggleVatChatKiDi", {
+    local ToggleVatChatKiDi = Tabs.Ban Đầu:AddToggle("ToggleVatChatKiDi", {
         Title = "Cày vật Chất kì Dị",
         Description = "", 
         Default = false })
@@ -3321,7 +3321,7 @@ end)
     end)
 end
 
-local boss = Tabs.Main:AddSection("Farm Boss")
+local boss = Tabs.Ban Đầu:AddSection("Farm Boss")
 
     if First_Sea then
 		tableBoss = {"The Gorilla King","Bobby","Yeti","Mob Leader","Vice Admiral","Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper","Thunder God","Cyborg","Saber Expert"}
@@ -3332,7 +3332,7 @@ local boss = Tabs.Main:AddSection("Farm Boss")
 	end
 
 
-    local DropdownBoss = Tabs.Main:AddDropdown("DropdownBoss", {
+    local DropdownBoss = Tabs.Ban Đầu:AddDropdown("DropdownBoss", {
         Title = "Chọn Boss",
         Description = "",
         Values = tableBoss,
@@ -3345,7 +3345,7 @@ local boss = Tabs.Main:AddSection("Farm Boss")
 		_G.SelectBoss = Value
     end)
 
-	local ToggleAutoFarmBoss = Tabs.Main:AddToggle("ToggleAutoFarmBoss", {
+	local ToggleAutoFarmBoss = Tabs.Ban Đầu:AddToggle("ToggleAutoFarmBoss", {
         Title = "Giết Boss",
         Description = "", 
         Default = false })
@@ -3388,7 +3388,7 @@ local boss = Tabs.Main:AddSection("Farm Boss")
     end)
 
 
-    local Material = Tabs.Main:AddSection("Farm Nguyên Liệu")
+    local Material = Tabs.Ban Đầu:AddSection("Farm Nguyên Liệu")
 
     if First_Sea then
         MaterialList = {
@@ -3402,7 +3402,7 @@ local boss = Tabs.Main:AddSection("Farm Boss")
         }
         end
 
-    local DropdownMaterial = Tabs.Main:AddDropdown("DropdownMaterial", {
+    local DropdownMaterial = Tabs.Ban Đầu:AddDropdown("DropdownMaterial", {
         Title = "Chọn Nguyên Liệu",
         Description = "",
         Values = MaterialList,
@@ -3416,7 +3416,7 @@ local boss = Tabs.Main:AddSection("Farm Boss")
         SelectMaterial = Value
     end)
 
-    local ToggleMaterial = Tabs.Main:AddToggle("ToggleMaterial", {
+    local ToggleMaterial = Tabs.Ban Đầu:AddToggle("ToggleMaterial", {
         Title = "Cày Nguyên Liệu",
         Description = "", 
         Default = false })
@@ -3475,10 +3475,10 @@ local boss = Tabs.Main:AddSection("Farm Boss")
       end)
 
       if Third_Sea then
-      local RoughSea = Tabs.Main:AddSection(" Kitsune ")
+      local RoughSea = Tabs.Ban Đầu:AddSection(" Kitsune ")
 
 
-      local ToggleEspKitsune = Tabs.Main:AddToggle("ToggleEspKitsune", {Title = "Định vị Đảo kisune",Description = "", Default = false })
+      local ToggleEspKitsune = Tabs.Ban Đầu:AddToggle("ToggleEspKitsune", {Title = "Định vị Đảo kisune",Description = "", Default = false })
       ToggleEspKitsune:OnChanged(function(Value)
         KitsuneIslandEsp = Value
         while KitsuneIslandEsp do wait()
@@ -3521,7 +3521,7 @@ local boss = Tabs.Main:AddSection("Farm Boss")
         end
     end
 
-      local ToggleTPKitsune = Tabs.Main:AddToggle("ToggleTPKitsune", {Title = "Di Chuyển Đến Đảo Kisune",Description = "", Default = false })
+      local ToggleTPKitsune = Tabs.Ban Đầu:AddToggle("ToggleTPKitsune", {Title = "Di Chuyển Đến Đảo Kisune",Description = "", Default = false })
       ToggleTPKitsune:OnChanged(function(Value)
         _G.TweenToKitsune = Value
       end)
@@ -3547,7 +3547,7 @@ local boss = Tabs.Main:AddSection("Farm Boss")
     end)
 
 
-      local ToggleCollectAzure = Tabs.Main:AddToggle("ToggleCollectAzure", {Title = "Nhặt Hồn Lửa",Description = "", Default = false })
+      local ToggleCollectAzure = Tabs.Ban Đầu:AddToggle("ToggleCollectAzure", {Title = "Nhặt Hồn Lửa",Description = "", Default = false })
       ToggleCollectAzure:OnChanged(function(Value)
          _G.CollectAzure = Value
       end)
@@ -3567,9 +3567,9 @@ end)
 end
 
 if Third_Sea then
-    local RoughSea = Tabs.Main:AddSection("Rough Sea")
+    local RoughSea = Tabs.Ban Đầu:AddSection("Rough Sea")
 
-    local ToggleSailBoat = Tabs.Main:AddToggle("ToggleSailBoat", {Title = "Mua Thuyền + Ngồi Vào",Description = "", Default = false })
+    local ToggleSailBoat = Tabs.Ban Đầu:AddToggle("ToggleSailBoat", {Title = "Mua Thuyền + Ngồi Vào",Description = "", Default = false })
     ToggleSailBoat:OnChanged(function(Value)
         _G.SailBoat = Value
     end)
@@ -3630,7 +3630,7 @@ if Third_Sea then
 	end)
 	
 
-    local ToggleTerrorshark = Tabs.Main:AddToggle("ToggleTerrorshark", {Title = " Giết Terrorshark",Description = "", Default = false })
+    local ToggleTerrorshark = Tabs.Ban Đầu:AddToggle("ToggleTerrorshark", {Title = " Giết Terrorshark",Description = "", Default = false })
 
     ToggleTerrorshark:OnChanged(function(Value)
         _G.AutoTerrorshark = Value
@@ -3671,7 +3671,7 @@ if Third_Sea then
 
 
 
-     local TogglePiranha = Tabs.Main:AddToggle("TogglePiranha", {Title = " Giết Piranha",Description = "", Default = false })
+     local TogglePiranha = Tabs.Ban Đầu:AddToggle("TogglePiranha", {Title = " Giết Piranha",Description = "", Default = false })
 
      TogglePiranha:OnChanged(function(Value)
         _G.farmpiranya = Value
@@ -3713,7 +3713,7 @@ if Third_Sea then
 
 
 
-     local ToggleShark = Tabs.Main:AddToggle("ToggleShark", {Title = "Giết Cá Mập",Description = "", Default = false })
+     local ToggleShark = Tabs.Ban Đầu:AddToggle("ToggleShark", {Title = "Giết Cá Mập",Description = "", Default = false })
      ToggleShark:OnChanged(function(Value)
         _G.AutoShark = Value
      end)
@@ -3754,7 +3754,7 @@ if Third_Sea then
 
 
 
-    local ToggleFishCrew = Tabs.Main:AddToggle("ToggleFishCrew", {Title = " Giết Fish Crew",Description = "", Default = false })
+    local ToggleFishCrew = Tabs.Ban Đầu:AddToggle("ToggleFishCrew", {Title = " Giết Fish Crew",Description = "", Default = false })
     ToggleFishCrew:OnChanged(function(Value)
        _G.AutoFishCrew = Value
     end)
@@ -3800,7 +3800,7 @@ if Third_Sea then
 
 
 
-    local ToggleShip = Tabs.Main:AddToggle("ToggleShip", {Title = "Đánh Thuyền Hải Tặc",Description = "", Default = false })
+    local ToggleShip = Tabs.Ban Đầu:AddToggle("ToggleShip", {Title = "Đánh Thuyền Hải Tặc",Description = "", Default = false })
     ToggleShip:OnChanged(function(Value)
         _G.Ship = Value
        end)
@@ -3840,7 +3840,7 @@ end)
 
 
 
-    local ToggleGhostShip = Tabs.Main:AddToggle("ToggleGhostShip", {Title = "Đánh Thuyền Ma",Description = "",Default = false })
+    local ToggleGhostShip = Tabs.Ban Đầu:AddToggle("ToggleGhostShip", {Title = "Đánh Thuyền Ma",Description = "",Default = false })
     ToggleGhostShip:OnChanged(function(Value)
         _G.GhostShip = Value
        end)
@@ -3960,9 +3960,9 @@ spawn(function()
       end)
 
 
-    local AutoElite = Tabs.Main:AddSection("Farm Boss Bí Ẩn")
+    local AutoElite = Tabs.Ban Đầu:AddSection("Farm Boss Bí Ẩn")
 
-    local ToggleElite = Tabs.Main:AddToggle("ToggleElite", {Title = "Đánh Boss Bí Ẩn",Description = "", Default = false })
+    local ToggleElite = Tabs.Ban Đầu:AddToggle("ToggleElite", {Title = "Đánh Boss Bí Ẩn",Description = "", Default = false })
 
     ToggleElite:OnChanged(function(Value)
        _G.AutoElite = Value
@@ -3972,8 +3972,8 @@ spawn(function()
            while task.wait() do
                if _G.AutoElite then
                    pcall(function()
-                       if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                           if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Diablo") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Deandre") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Urban") then
+                       if game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Visible == true then
+                           if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Container.QuestTitle.Title.Text,"Diablo") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Container.QuestTitle.Title.Text,"Deandre") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Quest.Container.QuestTitle.Title.Text,"Urban") then
                                if game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
                                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
@@ -4017,10 +4017,10 @@ spawn(function()
 
 
 if Third_Sea then
-    local Sea = Tabs.Main:AddSection("Sea Beast")
+    local Sea = Tabs.Ban Đầu:AddSection("Sea Beast")
 
 
-local ToggleSeaBeAst = Tabs.Main:AddToggle("ToggleSeaBeAst", {Title = "Treo + Đánh Thủy Quái",Description = "", Default = false })
+local ToggleSeaBeAst = Tabs.Ban Đầu:AddToggle("ToggleSeaBeAst", {Title = "Treo + Đánh Thủy Quái",Description = "", Default = false })
 
 ToggleSeaBeAst:OnChanged(function(Value)
     _G.AutoSeaBeast = Value
@@ -4135,7 +4135,7 @@ ToggleSeaBeAst:OnChanged(function(Value)
         end
     end)
 
-local ToggleAutoW = Tabs.Main:AddToggle("ToggleAutoW", {Title = "Tự Động Nhấn W",Description = "", Default = false })
+local ToggleAutoW = Tabs.Ban Đầu:AddToggle("ToggleAutoW", {Title = "Tự Động Nhấn W",Description = "", Default = false })
 ToggleAutoW:OnChanged(function(Value)
     _G.AutoW = Value
     end)
@@ -4153,10 +4153,10 @@ ToggleAutoW:OnChanged(function(Value)
 
 
 
-    local AutoMysticIsland = Tabs.Main:AddSection("Đảo Bí Ẩn")
+    local AutoMysticIsland = Tabs.Ban Đầu:AddSection("Đảo Bí Ẩn")
 
 
-    Tabs.Main:AddButton({
+    Tabs.Ban Đầu:AddButton({
         Title = "Bay Đến Đảo Bí Ẩn",
         Description = "",
         Callback = function()
@@ -4181,7 +4181,7 @@ ToggleAutoW:OnChanged(function(Value)
     end
 
 
-    Tabs.Main:AddButton({
+    Tabs.Ban Đầu:AddButton({
         Title = "Bay đến Chỗ Cao Nhất",
         Description = "",
         Callback = function()
@@ -4208,7 +4208,7 @@ ToggleAutoW:OnChanged(function(Value)
         end
     end
 
-local ToggleTweenGear = Tabs.Main:AddToggle("ToggleTweenGear", {Title = "Nhặt Bánh Răng",Description = "", Default = false })
+local ToggleTweenGear = Tabs.Ban Đầu:AddToggle("ToggleTweenGear", {Title = "Nhặt Bánh Răng",Description = "", Default = false })
 ToggleTweenGear:OnChanged(function(Value)
     _G.TweenToGear = Value
 end) 
@@ -4235,7 +4235,7 @@ spawn(function()
 
 
 
-    local Togglelockmoon = Tabs.Main:AddToggle("Togglelockmoon", {Title = "Nhìn Trăng + Bật Tộc",Description = "", Default = false })
+    local Togglelockmoon = Tabs.Ban Đầu:AddToggle("Togglelockmoon", {Title = "Nhìn Trăng + Bật Tộc",Description = "", Default = false })
     Togglelockmoon:OnChanged(function(Value)
         _G.AutoLockMoon = Value
     end) 
@@ -4267,14 +4267,14 @@ spawn(function()
     end)
 
 
-local ToggleMirage = Tabs.Main:AddToggle("ToggleMirage", {Title = "Treo Đảo Bí Ẩn",Description = "", Default = false })
+local ToggleMirage = Tabs.Ban Đầu:AddToggle("ToggleMirage", {Title = "Treo Đảo Bí Ẩn",Description = "", Default = false })
 ToggleMirage:OnChanged(function(Value)
  _G.AutoSeaBeast = Value
 end) 
 
  Options.ToggleMirage:SetValue(false)
 
- local AutoW = Tabs.Main:AddToggle("AutoW", {Title = "Nhấn Phím W",Description = "", Default = false })
+ local AutoW = Tabs.Ban Đầu:AddToggle("AutoW", {Title = "Nhấn Phím W",Description = "", Default = false })
  AutoW:OnChanged(function(Value)
     _G.AutoW = Value
      end)
@@ -4290,10 +4290,10 @@ end)
     end)
 end
 
-local Items = Tabs.Main:AddSection("Items Farm")
+local Items = Tabs.Ban Đầu:AddSection("Items Farm")
 
 if Third_Sea then
-    local ToggleHallow = Tabs.Main:AddToggle("ToggleHallow", {Title = "Cày Lưỡi Hái Bóng Tối ( Từ A - Z )",Description = "", Default = false })
+    local ToggleHallow = Tabs.Ban Đầu:AddToggle("ToggleHallow", {Title = "Cày Lưỡi Hái Bóng Tối ( Từ A - Z )",Description = "", Default = false })
 
     ToggleHallow:OnChanged(function(Value)
         AutoHallowSycthe = Value
@@ -4350,7 +4350,7 @@ if Third_Sea then
            end)
         
            
-           local ToggleYama = Tabs.Main:AddToggle("ToggleYama", {Title = "Lấy kiếm Yama",Description = "", Default = false })
+           local ToggleYama = Tabs.Ban Đầu:AddToggle("ToggleYama", {Title = "Lấy kiếm Yama",Description = "", Default = false })
            ToggleYama:OnChanged(function(Value)
             _G.AutoYama = Value
            end)
@@ -4368,7 +4368,7 @@ if Third_Sea then
         end)
 
 
-        local ToggleTushita = Tabs.Main:AddToggle("ToggleTushita", {Title = "Lấy Tushita",Description = "", Default = false })
+        local ToggleTushita = Tabs.Ban Đầu:AddToggle("ToggleTushita", {Title = "Lấy Tushita",Description = "", Default = false })
         ToggleTushita:OnChanged(function(Value)
             AutoTushita = Value
         end)
@@ -4405,7 +4405,7 @@ if Third_Sea then
                    end)
 
 
-                   local ToggleHoly = Tabs.Main:AddToggle("ToggleHoly", {Title = "Thắp Sáng Đuốc Lấy Tushita",Description = "", Default = false })
+                   local ToggleHoly = Tabs.Ban Đầu:AddToggle("ToggleHoly", {Title = "Thắp Sáng Đuốc Lấy Tushita",Description = "", Default = false })
                    ToggleHoly:OnChanged(function(Value)
                     _G.Auto_Holy_Torch = Value
                    end)
@@ -4433,7 +4433,7 @@ if Third_Sea then
 
 
 if Second_Sea then
-        local ToggleFactory = Tabs.Main:AddToggle("ToggleFactory", {Title = "Đánh Nhà Máy",Description = "", Default = false })
+        local ToggleFactory = Tabs.Ban Đầu:AddToggle("ToggleFactory", {Title = "Đánh Nhà Máy",Description = "", Default = false })
         ToggleFactory:OnChanged(function(Value)
             _G.Factory = Value
         end)
@@ -4477,7 +4477,7 @@ if Second_Sea then
     end
 
         if Third_Sea then
-    local ToggleCakeV2 = Tabs.Main:AddToggle("ToggleCakeV2", {Title = "Giết Katakuri V2 (Cần Triệu Hồi)",Description = "", Default = false })
+    local ToggleCakeV2 = Tabs.Ban Đầu:AddToggle("ToggleCakeV2", {Title = "Giết Katakuri V2 (Cần Triệu Hồi)",Description = "", Default = false })
     ToggleCakeV2:OnChanged(function(Value)
         _G.AutoCakeV2 = Value
     end)
@@ -4522,7 +4522,7 @@ end
 
     
 if Second_Sea or Third_Sea then
-    local ToggleHakiColor = Tabs.Main:AddToggle("ToggleHakiColor", {Title = "Mua Haki Màu",Description = "",Default = false })
+    local ToggleHakiColor = Tabs.Ban Đầu:AddToggle("ToggleHakiColor", {Title = "Mua Haki Màu",Description = "",Default = false })
     ToggleHakiColor:OnChanged(function(Value)
         _G.Auto_Buy_Enchancement = Value
     end)
@@ -4541,7 +4541,7 @@ if Second_Sea or Third_Sea then
 end
 
 if Second_Sea then
-    local ToggleSwordLengend = Tabs.Main:AddToggle("ToggleSwordLengend", {Title = "Mua Kiếm Huyền Thoại",Description = "",Default = false })
+    local ToggleSwordLengend = Tabs.Ban Đầu:AddToggle("ToggleSwordLengend", {Title = "Mua Kiếm Huyền Thoại",Description = "",Default = false })
     ToggleSwordLengend:OnChanged(function(Value)
         _G.BuyLengendSword = Value
     end)
@@ -4568,7 +4568,7 @@ if Second_Sea then
 
 
 if Second_Sea then
-    local ToggleEvoRace = Tabs.Main:AddToggle("ToggleEvoRace", {Title = "Thức Tỉnh Tộc V2",Description = "",Default = false })
+    local ToggleEvoRace = Tabs.Ban Đầu:AddToggle("ToggleEvoRace", {Title = "Thức Tỉnh Tộc V2",Description = "",Default = false })
     ToggleEvoRace:OnChanged(function(Value)
         _G.AutoEvoRace = Value
     end)
@@ -5066,7 +5066,7 @@ spawn(function()
   pcall(function()
       while wait() do
           if _G.EnabledPvP then
-              if game:GetService("Players").LocalPlayer.PlayerGui.Main.PvpDisabled.Visible == true then
+              if game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.PvpDisabled.Visible == true then
                   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
               end
           end
@@ -5080,7 +5080,7 @@ Tabs.Teleport:AddButton({
     Title = "Sea 1",
     Description = "",
     Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelBan Đầu")
     end
 })
 
@@ -5609,12 +5609,12 @@ spawn(function()
     while wait(.1) do
         pcall(function()
             if _G.Auto_StartRaid then
-                if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == false then
+                if game:GetService("Players")["LocalPlayer"].PlayerGui.Ban Đầu.Timer.Visible == false then
                     if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Special Microchip") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Special Microchip") then
                         if Second_Sea then
-                            fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon2.Button.Main.ClickDetector)
+                            fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon2.Button.Ban Đầu.ClickDetector)
                         elseif Third_Sea then
-                            fireclickdetector(game:GetService("Workspace").Map["Boat Castle"].RaidSummon2.Button.Main.ClickDetector)
+                            fireclickdetector(game:GetService("Workspace").Map["Boat Castle"].RaidSummon2.Button.Ban Đầu.ClickDetector)
                         end
                     end
                 end
@@ -5657,7 +5657,7 @@ spawn(function()
     while task.wait() do
         if AutoNextIsland then
             pcall(function()
-                if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
+                if game:GetService("Players")["LocalPlayer"].PlayerGui.Ban Đầu.Timer.Visible == true then
                     if game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5") then
                         Tween(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5").CFrame * CFrame.new(0,70,100))
                     elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4") then
@@ -5897,7 +5897,7 @@ spawn(function()
             if Auto_Law then
                 if not game:GetService("Workspace").Enemies:FindFirstChild("Order") and not game:GetService("ReplicatedStorage"):FindFirstChild("Order") then
                     if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Microchip") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Microchip") then
-                        fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon.Button.Main.ClickDetector)
+                        fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon.Button.Ban Đầu.ClickDetector)
                     end
                 end
                 if game:GetService("ReplicatedStorage"):FindFirstChild("Order") or game:GetService("Workspace").Enemies:FindFirstChild("Order") then
@@ -6447,7 +6447,7 @@ Tabs.Misc:AddButton({
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
-        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
+        game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.FruitShop.Visible = true
 	end
 })
 
@@ -6457,7 +6457,7 @@ Tabs.Misc:AddButton({
 	Title = "Mở bảng haki",
 	Description = "",
 	Callback = function()
-		game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
+		game.Players.localPlayer.PlayerGui.Ban Đầu.Colors.Visible = true
 	end
 })
 
@@ -6471,7 +6471,7 @@ Tabs.Misc:AddButton({
 			[1] = "getTitles"
 		}
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-		game.Players.localPlayer.PlayerGui.Main.Titles.Visible = true
+		game.Players.localPlayer.PlayerGui.Ban Đầu.Titles.Visible = true
 	end
 })
 
@@ -6481,7 +6481,7 @@ Tabs.Misc:AddButton({
 	Title = "Mở bảng thức tỉnh chiêu",
 	Description = "",
 	Callback = function()
-        game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
+        game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.AwakeningToggler.Visible = true
 	end
 })
 
@@ -6549,7 +6549,7 @@ Tabs.Misc:AddButton({
 		ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	
 	
-		local cac = require(game:GetService("Players").LocalPlayer.PlayerGui.Main.UIController.Inventory)
+		local cac = require(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.UIController.Inventory)
 		local Inventory = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")
 		local Items = {}
 		local RaityLevel = { "Mythical", "Legendary", "Rare", "Uncommon", "Common" }
@@ -6577,9 +6577,9 @@ Tabs.Misc:AddButton({
 		while total2 < total do
 			local i = 0
 			while i < 25000 and total2 < total do
-				game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.ScrollingFrame.CanvasPosition =
+				game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.InventoryContainer.Right.Content.ScrollingFrame.CanvasPosition =
 					Vector2.new(0, i)
-				for k, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.ScrollingFrame.Frame:GetChildren()) do
+				for k, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.InventoryContainer.Right.Content.ScrollingFrame.Frame:GetChildren()) do
 					if v:IsA("Frame") and not rac[v.ItemName.Text] and v.ItemName.Visible == true then
 						local vaihuhu = GetRaity(v.Background.BackgroundColor3)
 						if vaihuhu then
@@ -6688,22 +6688,22 @@ Tabs.Misc:AddButton({
 			return tostring(v):reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
 		end
 	
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli.AnchorPoint = Vector2.new(0.5, 0.5)
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli.Position = UDim2.new(0, 1120, 0, 700)
+		game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Beli.AnchorPoint = Vector2.new(0.5, 0.5)
+		game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Beli.Position = UDim2.new(0, 1120, 0, 700)
 	
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.Level.AnchorPoint = Vector2.new(0.5, 0.5)
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.Level.Position = UDim2.new(0, 1150, 0, 750)
-		local Name = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
+		game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Level.AnchorPoint = Vector2.new(0.5, 0.5)
+		game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Level.Position = UDim2.new(0, 1150, 0, 750)
+		local Name = game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Fragments:Clone()
 		Name.Name = "Name"
-		Name.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli
+		Name.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Beli
 		Name.Position = UDim2.new(0, 0, -1.5, 0)
 		Name.Size = UDim2.new(1, 0, 1, 0)
 		Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Name.Text = game.Players.LocalPlayer.Name
 	
-		local Fragments = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
+		local Fragments = game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Fragments:Clone()
 		Fragments.Name = "FragmentsCheck"
-		Fragments.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli
+		Fragments.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Beli
 		Fragments.Position = UDim2.new(0, 0, -0.75, 0)
 		Fragments.Size = UDim2.new(1, 0, 1, 0)
 		Fragments.Text = 'ƒ' .. formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)
@@ -6712,36 +6712,36 @@ Tabs.Misc:AddButton({
 		}
 	
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-		game.Players.LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Position = UDim2.new(0.48, 10, 0.908, 2)
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Size = UDim2.new(1, 0, 0.22, 0)
+		game.Players.LocalPlayer.PlayerGui.Ban Đầu.AwakeningToggler.Visible = true
+		game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.AwakeningToggler.Position = UDim2.new(0.48, 10, 0.908, 2)
+		game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.AwakeningToggler.Size = UDim2.new(1, 0, 0.22, 0)
 	
 	
 		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
+			game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.MenuButton.Visible = false
 		end)
 		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.RaceEnergy.Visible = false
+			game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.RaceEnergy.Visible = false
 		end)
 		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible = false
+			game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.SafeZone.Visible = false
 		end)
 		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.HP.Visible = false
+			game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.HP.Visible = false
 		end)
 		pcall(function()
 			game:GetService("Players").LocalPlayer.PlayerGui.Backpack.Enabled.Visible = false
 		end)
 		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.Energy.Visible = false
+			game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Energy.Visible = false
 		end)
-		for k, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main:GetChildren()) do
+		for k, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu:GetChildren()) do
 			if v:IsA("ImageButton") then
 				v:Destroy()
 			end
 		end
 		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.Compass.Visible = false
+			game:GetService("Players").LocalPlayer.PlayerGui.Ban Đầu.Compass.Visible = false
 		end)
 	end
 })
